@@ -1,10 +1,10 @@
-var express    = require('express');
-var app        = express();
-var bodyParser = require('body-parser');
-var dotenv = require('dotenv');
-var mongoose   = require('mongoose');
-var Bear     = require('./models/bear');
+import express from'express';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import Bear from'./models/bear';
 
+var app = express();
 dotenv.config();
 mongoose.connect('mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASS + '@ds163060.mlab.com:63060/testapi');
 
@@ -78,11 +78,6 @@ router.route('/bears/:bear_id')
           res.json({ message: 'Successfully deleted' });
       });
 });
-
-
-
-
-
 
 app.use('/api', router);
 
