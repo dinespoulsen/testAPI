@@ -1,5 +1,5 @@
-var mongoose     = require('mongoose');
-var Schema       = mongoose.Schema;
+import mongoose from 'mongoose';
+let Schema = mongoose.Schema;
 
 var BearSchema   = new Schema({
     name: String
