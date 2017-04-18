@@ -21,20 +21,26 @@ router.use(function(req, res, next) {
     next();
 });
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 fs.readdirSync('./controllers').forEach(function (file) {
   if(file.substr(-3) == '.js') {
       let routerFunc = require('./controllers/' + file);
       routerFunc.controller(router);
   }
 });
-
+app.use('/api', router);
 router.get('/', (req, res) => {
-    res.json({ message: 'hooray! welcome to our api!' });
+    res.json({ message: 'hooray! welcome to my testAPI' });
 });
 
 
 
-app.use('/api', router);
+
 
 app.listen(port);
 console.log('Server listening to port ' + port);
