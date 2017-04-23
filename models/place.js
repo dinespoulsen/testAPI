@@ -6,7 +6,9 @@ var PlaceSchema   = new Schema({
     street: String,
     number: Number,
     zipcode: String,
-    city: String  
+    city: String,
+    lat: Number,
+    lng: Number,  
 });
 
 export default mongoose.model('Place', PlaceSchema);
