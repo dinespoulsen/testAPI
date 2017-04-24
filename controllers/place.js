@@ -24,7 +24,9 @@ module.exports.controller = function(router) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Place created!' });
+            res.json({ message: 'Place created!',
+                      place: place
+                    });
         });
       }
       );
